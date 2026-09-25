@@ -14,6 +14,7 @@ import { Celebration } from './components/Celebration';
 import { DateCard } from './components/DateCard';
 import { TerminalModal } from './components/TerminalModal';
 import { Footer } from './components/Footer';
+import { EmailStatusToast } from './components/EmailStatusToast';
 import { getSoundMuted } from './utils/sound';
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [partnerName, setPartnerName] = useState('');
   const [myName, setMyName] = useState('');
+  const [emailStatus, setEmailStatus] = useState(null);
 
   // Always reset window scroll to top when changing screens (fixes Part 1 & Part 2 scroll alignment)
   useEffect(() => {
@@ -45,21 +47,30 @@ export default function App() {
   const resetScreens = () => {
     setPartnerName('');
     setMyName('');
+    setEmailStatus(null);
     setCurrentScreen(0);
   };
 
   // Trigger serverless email notification in background
   const sendEmailNotification = async (partner, me) => {
+    setEmailStatus('sending');
     try {
-      await fetch('/api/send-email', {
+      const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ partnerName: partner, myName: me })
       });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        setEmailStatus('success');
+      } else {
+        setEmailStatus('error');
+      }
     } catch (err) {
-      console.error('[Client] Email notification error quietly caught:', err);
+      console.error('[Client] Email notification error:', err);
+      setEmailStatus('error');
     }
   };
 
@@ -72,6 +83,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#12030A] text-rose-50 flex flex-col justify-between relative overflow-x-hidden">
+      {/* Email Status Toast Notification */}
+      <EmailStatusToast
+        status={emailStatus}
+        onDismiss={() => setEmailStatus(null)}
+      />
+
       {/* Dynamic Background Floating Hearts Canvas */}
       <FloatingHearts intensity={currentScreen === 6 ? 'high' : 'normal'} />
 
