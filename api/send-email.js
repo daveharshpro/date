@@ -24,8 +24,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Partner name and my name are required' });
     }
 
-    const gmailUser = process.env.GMAIL_USER || 'daveharsh0902@gmail.com';
+    const gmailUser = process.env.GMAIL_USER || 'daveharsh0905@gmail.com';
     const gmailPass = process.env.GMAIL_APP_PASSWORD;
+    const recipientEmail = process.env.NOTIFICATION_EMAIL || 'daveharsh0905@gmail.com';
 
     if (!gmailPass) {
       console.warn('[API Warning] GMAIL_APP_PASSWORD environment variable is not set.');
@@ -46,7 +47,7 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: `"Date Journey ❤️" <${gmailUser}>`,
-      to: 'daveharsh0902@gmail.com',
+      to: recipientEmail,
       subject: '❤️ We Have Date Names!',
       text: `Hey! ❤️ Someone just completed the date experience.
 
