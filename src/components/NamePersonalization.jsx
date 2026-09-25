@@ -55,7 +55,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-bold font-romantic text-white text-glow">
-            Making It Official ✍️❤️
+            A Little Detail Just for Us 🤫❤️
           </h2>
           <p className="text-xs sm:text-sm text-rose-200/80">
             Let's personalize our date details!
@@ -78,7 +78,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
                 setPartnerName(e.target.value);
                 if (errorMsg) setErrorMsg('');
               }}
-              placeholder="Enter the name/nickname you want me to call you..."
+              placeholder="Nickname you want me to call you..."
               className="w-full px-4 py-3.5 rounded-2xl glass-panel border border-rose-500/30 text-white placeholder-rose-300/40 text-base focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition-all"
             />
           </div>
@@ -97,7 +97,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
                 setMyName(e.target.value);
                 if (errorMsg) setErrorMsg('');
               }}
-              placeholder="Enter the name/nickname you'll call me..."
+              placeholder="Nickname that you'll call me..."
               className="w-full px-4 py-3.5 rounded-2xl glass-panel border border-rose-500/30 text-white placeholder-rose-300/40 text-base focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition-all"
             />
           </div>
