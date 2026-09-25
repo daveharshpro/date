@@ -9,6 +9,7 @@ import { DeveloperIntro } from './components/DeveloperIntro';
 import { BuildSequence } from './components/BuildSequence';
 import { Reasons } from './components/Reasons';
 import { DateProposal } from './components/DateProposal';
+import { NamePersonalization } from './components/NamePersonalization';
 import { Celebration } from './components/Celebration';
 import { DateCard } from './components/DateCard';
 import { TerminalModal } from './components/TerminalModal';
@@ -19,6 +20,13 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState(0);
   const [isMuted, setIsMuted] = useState(getSoundMuted());
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [partnerName, setPartnerName] = useState('');
+  const [myName, setMyName] = useState('');
+
+  // Always reset window scroll to top when changing screens (fixes Part 1 & Part 2 scroll alignment)
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [currentScreen]);
 
   // Keyboard shortcut for Terminal Easter Egg (Press ~ key)
   useEffect(() => {
@@ -33,17 +41,44 @@ export default function App() {
   }, []);
 
   const nextScreen = () => setCurrentScreen((prev) => prev + 1);
-  const resetScreens = () => setCurrentScreen(0);
+
+  const resetScreens = () => {
+    setPartnerName('');
+    setMyName('');
+    setCurrentScreen(0);
+  };
+
+  // Trigger serverless email notification in background
+  const sendEmailNotification = async (partner, me) => {
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ partnerName: partner, myName: me })
+      });
+    } catch (err) {
+      console.error('[Client] Email notification error quietly caught:', err);
+    }
+  };
+
+  const handleNamesSubmitted = ({ partnerName: partner, myName: me }) => {
+    setPartnerName(partner);
+    setMyName(me);
+    sendEmailNotification(partner, me);
+    setCurrentScreen(6); // Move to Celebration screen
+  };
 
   return (
     <div className="min-h-screen bg-[#12030A] text-rose-50 flex flex-col justify-between relative overflow-x-hidden">
       {/* Dynamic Background Floating Hearts Canvas */}
-      <FloatingHearts intensity={currentScreen === 5 ? 'high' : 'normal'} />
+      <FloatingHearts intensity={currentScreen === 6 ? 'high' : 'normal'} />
 
       {/* Header Controls (Sound & Terminal) */}
       <HeaderControls
         currentScreen={currentScreen}
-        totalScreens={6}
+        totalScreens={7}
         isMuted={isMuted}
         setIsMuted={setIsMuted}
         onOpenTerminal={() => setIsTerminalOpen(true)}
@@ -77,15 +112,31 @@ export default function App() {
           )}
 
           {currentScreen === 5 && (
-            <Celebration
-              key="celebration"
+            <NamePersonalization
+              key="names"
               config={dateConfig}
-              onViewDetails={() => setCurrentScreen(6)}
+              onSubmit={handleNamesSubmitted}
             />
           )}
 
           {currentScreen === 6 && (
-            <DateCard key="card" config={dateConfig} onReset={resetScreens} />
+            <Celebration
+              key="celebration"
+              config={dateConfig}
+              partnerName={partnerName}
+              myName={myName}
+              onViewDetails={() => setCurrentScreen(7)}
+            />
+          )}
+
+          {currentScreen === 7 && (
+            <DateCard
+              key="card"
+              config={dateConfig}
+              partnerName={partnerName}
+              myName={myName}
+              onReset={resetScreens}
+            />
           )}
         </AnimatePresence>
       </main>

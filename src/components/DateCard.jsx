@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Utensils, Music, Heart, RotateCcw, Sparkles } from 'lucide-react';
 import { playClickSound } from '../utils/sound';
 
-export const DateCard = ({ config, onReset }) => {
+export const DateCard = ({ config, partnerName, myName, onReset }) => {
   const handleReplay = () => {
     playClickSound();
     onReset();
   };
+
+  const coupleLabel = partnerName && myName ? `${partnerName} + ${myName}` : (config.coupleText || "You + Me");
 
   return (
     <motion.div
@@ -29,8 +31,8 @@ export const DateCard = ({ config, onReset }) => {
             <span className="font-semibold text-base sm:text-lg font-romantic">Official Ticket</span>
           </div>
 
-          <div className="px-2.5 py-1 rounded-full bg-rose-500/20 border border-rose-400/30 text-[10px] sm:text-xs font-mono text-rose-200 uppercase tracking-widest">
-            {config.coupleText || "You + Me"}
+          <div className="px-3 py-1 rounded-full bg-rose-500/20 border border-rose-400/30 text-xs font-mono text-rose-200 uppercase tracking-widest">
+            {coupleLabel}
           </div>
         </div>
 

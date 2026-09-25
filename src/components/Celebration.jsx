@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import { Sparkles, Heart, Unlock, Calendar, ArrowRight } from 'lucide-react';
 import { playCelebrationSound, playClickSound } from '../utils/sound';
 
-export const Celebration = ({ config, onViewDetails }) => {
+export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
   useEffect(() => {
     // Play audio fanfare
     playCelebrationSound();
@@ -98,6 +98,24 @@ export const Celebration = ({ config, onViewDetails }) => {
             {config.celebrationSubtext || "I knew you'd say yes. 😌"}
           </motion.p>
         </div>
+
+        {/* Personalized Names Display Box */}
+        {partnerName && myName && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="p-4 rounded-2xl glass-panel border border-rose-500/30 text-rose-100 text-sm sm:text-base space-y-1"
+          >
+            <p className="font-semibold text-rose-300 font-romantic">
+              It's officially a date! ❤️
+            </p>
+            <p className="text-xs sm:text-sm text-rose-200/90">
+              I'll call you <span className="font-bold text-white px-1.5 py-0.5 rounded bg-rose-500/30 border border-rose-400/40">{partnerName}</span>
+              ... and you'll call me <span className="font-bold text-white px-1.5 py-0.5 rounded bg-pink-500/30 border border-pink-400/40">{myName}</span> 😌
+            </p>
+          </motion.div>
+        )}
 
         {/* Unlocked Badge */}
         <motion.div
