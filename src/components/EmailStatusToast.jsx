@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MailCheck, MailX, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MailCheck, MailX, Sparkles, Check, AlertCircle } from 'lucide-react';
 
 export const EmailStatusToast = ({ status, onDismiss }) => {
   useEffect(() => {
@@ -18,62 +18,86 @@ export const EmailStatusToast = ({ status, onDismiss }) => {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, y: -20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -20, scale: 0.9 }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 max-w-xs sm:max-w-sm pointer-events-auto"
+        initial={{ opacity: 0, scale: 0.3, y: -20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.3, y: -20 }}
+        transition={{ type: 'spring', stiffness: 450, damping: 25 }}
+        className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 pointer-events-none"
       >
-        <div
-          className={`flex items-center gap-3 px-4 py-3 rounded-2xl backdrop-blur-xl shadow-2xl border transition-all ${
-            status === 'sending'
-              ? 'bg-rose-950/80 border-rose-500/40 text-rose-100 shadow-rose-900/30'
-              : status === 'success'
-              ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-100 shadow-emerald-900/40'
-              : 'bg-rose-950/90 border-rose-500/60 text-rose-200 shadow-rose-950/50'
-          }`}
-        >
-          {/* Status Icon */}
-          <div className="shrink-0 flex items-center justify-center">
-            {status === 'sending' && (
-              <Loader2 className="w-5 h-5 text-rose-400 animate-spin" />
-            )}
-            {status === 'success' && (
-              <div className="relative flex items-center justify-center">
-                <MailCheck className="w-5 h-5 text-emerald-400 animate-bounce" />
-                <CheckCircle2 className="w-3 h-3 text-emerald-300 absolute -bottom-1 -right-1" />
-              </div>
-            )}
-            {status === 'error' && (
-              <div className="relative flex items-center justify-center">
-                <MailX className="w-5 h-5 text-rose-400" />
-                <AlertCircle className="w-3 h-3 text-rose-300 absolute -bottom-1 -right-1" />
-              </div>
-            )}
-          </div>
+        <div className="relative group flex items-center justify-center p-3 sm:p-3.5 rounded-2xl bg-black/75 backdrop-blur-2xl border border-rose-500/40 shadow-[0_0_25px_rgba(255,77,109,0.35)] overflow-visible">
+          {/* Ambient Glowing Background Light */}
+          <div
+            className={`absolute inset-0 rounded-2xl blur-md transition-all duration-500 -z-10 ${
+              status === 'success'
+                ? 'bg-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.4)]'
+                : status === 'error'
+                ? 'bg-rose-600/40 shadow-[0_0_30px_rgba(225,29,72,0.4)]'
+                : 'bg-rose-500/30 animate-pulse'
+            }`}
+          />
 
-          {/* Text Message */}
-          <div className="flex-1 text-xs sm:text-sm font-medium">
-            {status === 'sending' && (
-              <span>Sending notification email...</span>
-            )}
-            {status === 'success' && (
-              <span>Notification email sent successfully! ✉️❤️</span>
-            )}
-            {status === 'error' && (
-              <span>Email notification failed to send</span>
-            )}
-          </div>
+          {/* 1. SENDING ANIMATION */}
+          {status === 'sending' && (
+            <div className="relative flex items-center justify-center p-1">
+              <motion.div
+                animate={{ y: [0, -4, 0], scale: [1, 1.05, 1] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
+                className="text-rose-300"
+              >
+                <Mail className="w-6 h-6 text-rose-400" />
+              </motion.div>
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 absolute -top-1.5 -right-1.5 animate-spin-slow" />
+            </div>
+          )}
 
-          {/* 5-Second Animated Dismiss Bar */}
+          {/* 2. SUCCESS ANIMATION */}
+          {status === 'success' && (
+            <div className="relative flex items-center justify-center p-1">
+              <motion.div
+                initial={{ scale: 0.4 }}
+                animate={{ scale: [0.4, 1.3, 1] }}
+                transition={{ duration: 0.5, type: 'spring', stiffness: 400 }}
+                className="relative flex items-center justify-center"
+              >
+                <MailCheck className="w-6.5 h-6.5 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+
+                {/* Corner Checkmark Badge */}
+                <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 text-black flex items-center justify-center border border-black shadow">
+                  <Check className="w-2.5 h-2.5 stroke-[3]" />
+                </span>
+              </motion.div>
+
+              {/* Animated Floating Heart Burst */}
+              <motion.span
+                initial={{ opacity: 0, y: 0, scale: 0.5 }}
+                animate={{ opacity: [0, 1, 0], y: [-4, -22], scale: [0.5, 1.3, 0.8] }}
+                transition={{ duration: 1.8, repeat: Infinity, repeatDelay: 0.4 }}
+                className="absolute -top-3 text-rose-400 pointer-events-none text-xs"
+              >
+                ❤️
+              </motion.span>
+            </div>
+          )}
+
+          {/* 3. ERROR ANIMATION */}
+          {status === 'error' && (
+            <motion.div
+              animate={{ x: [-4, 4, -4, 4, 0] }}
+              transition={{ duration: 0.4 }}
+              className="relative flex items-center justify-center p-1"
+            >
+              <MailX className="w-6 h-6 text-rose-400" />
+              <AlertCircle className="w-3 h-3 text-amber-400 absolute -bottom-1 -right-1" />
+            </motion.div>
+          )}
+
+          {/* 5-Second Circular Progress Border Indicator */}
           {(status === 'success' || status === 'error') && (
             <motion.div
-              initial={{ scaleX: 1 }}
-              animate={{ scaleX: 0 }}
-              transition={{ duration: 5, ease: 'linear' }}
-              className={`absolute bottom-0 left-3 right-3 h-[2px] rounded-full origin-left ${
-                status === 'success' ? 'bg-emerald-400/70' : 'bg-rose-400/70'
-              }`}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              transition={{ duration: 5, ease: 'easeIn' }}
+              className="absolute -bottom-1 left-2 right-2 h-[2px] bg-gradient-to-r from-emerald-400 via-rose-400 to-amber-300 rounded-full"
             />
           )}
         </div>
