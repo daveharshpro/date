@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Laugh, Sparkles, Smile, Gift, ArrowRight } from 'lucide-react';
+import { Heart, Laugh, Sparkles, Smile, Gift, ArrowRight, Eye } from 'lucide-react';
 import { playClickSound } from '../utils/sound';
 
 const iconMap = {
@@ -8,7 +8,8 @@ const iconMap = {
   Laugh: Laugh,
   Sparkles: Sparkles,
   Smile: Smile,
-  Gift: Gift
+  Gift: Gift,
+  Eye: Eye
 };
 
 export const Reasons = ({ config, onNext }) => {
@@ -112,7 +113,8 @@ export const Reasons = ({ config, onNext }) => {
         onClick={handleProceed}
         className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl glass-button text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer shadow-2xl"
       >
-        <span>Wait, there's one more thing... 💖</span>
+        <Sparkles className="w-5 h-5 text-amber-300" />
+        <span>Wait, there's one more thing...</span>
         <ArrowRight className="w-5 h-5" />
       </motion.button>
     </motion.div>

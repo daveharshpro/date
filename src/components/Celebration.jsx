@@ -86,7 +86,7 @@ export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
             transition={{ delay: 0.3 }}
             className="text-clamp-title font-extrabold font-romantic bg-gradient-to-r from-white via-rose-100 to-amber-200 bg-clip-text text-transparent text-glow"
           >
-            {config.celebrationTitle || "YAY! ❤️"}
+            {config.celebrationTitle || "YAY!"}
           </motion.h1>
 
           <motion.p
@@ -95,7 +95,7 @@ export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
             transition={{ delay: 0.5 }}
             className="text-lg sm:text-2xl text-rose-200 font-light"
           >
-            {config.celebrationSubtext || "I knew you'd say yes. 😌"}
+            {config.celebrationSubtext || "I knew you'd say yes."}
           </motion.p>
         </div>
 
@@ -108,11 +108,11 @@ export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
             className="p-4 rounded-2xl glass-panel border border-rose-500/30 text-rose-100 text-sm sm:text-base space-y-1"
           >
             <p className="font-semibold text-rose-300 font-romantic">
-              It's officially a date! ❤️
+              It's officially a date!
             </p>
             <p className="text-xs sm:text-sm text-rose-200/90">
               I'll call you <span className="font-bold text-white px-1.5 py-0.5 rounded bg-rose-500/30 border border-rose-400/40">{partnerName}</span>
-              ... and you'll call me <span className="font-bold text-white px-1.5 py-0.5 rounded bg-pink-500/30 border border-pink-400/40">{myName}</span> 😌
+              ... and you'll call me <span className="font-bold text-white px-1.5 py-0.5 rounded bg-pink-500/30 border border-pink-400/40">{myName}</span>
             </p>
           </motion.div>
         )}
@@ -125,7 +125,7 @@ export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
           className="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-semibold text-sm sm:text-lg shadow-[0_0_20px_rgba(52,211,153,0.2)]"
         >
           <Unlock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 animate-bounce" />
-          <span>{config.celebrationBadge || "Date officially unlocked 🔓❤️"}</span>
+          <span>{config.celebrationBadge || "Date officially unlocked"}</span>
         </motion.div>
 
         {/* View Details Button */}
@@ -140,7 +140,7 @@ export const Celebration = ({ config, partnerName, myName, onViewDetails }) => {
             className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl glass-button text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-3 mx-auto hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer shadow-2xl"
           >
             <Calendar className="w-5 h-5" />
-            <span>See Date Details 🎟️</span>
+            <span>See Date Details</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </motion.div>

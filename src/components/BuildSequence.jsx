@@ -6,8 +6,8 @@ import { playPingSound } from '../utils/sound';
 export const BuildSequence = ({ config, onNext }) => {
   const steps = config.buildSteps || [
     { text: "Initializing Date.exe...", icon: "Terminal" },
-    { text: "Finding perfect person...", success: true, detail: "Person found: YOU ❤️" },
-    { text: "Checking compatibility...", success: true, detail: "100% Match! ✨" },
+    { text: "Finding perfect person...", success: true, detail: "Person found: YOU" },
+    { text: "Checking compatibility...", success: true, detail: "100% Match!" },
     { text: "Preparing courage...", progress: 87 },
     { text: "Generating confidence...", progress: 100 },
     { text: "Deploying question...", icon: "Rocket" }
@@ -171,7 +171,7 @@ export const BuildSequence = ({ config, onNext }) => {
                 {/* Extra Detail Tag */}
                 {step.detail && (
                   <p className="text-[10px] sm:text-[11px] text-emerald-300/90 pl-6">
-                    ↳ {step.detail}
+                    -&gt; {step.detail}
                   </p>
                 )}
               </motion.div>
@@ -189,7 +189,7 @@ export const BuildSequence = ({ config, onNext }) => {
             >
               <div className="inline-flex items-center gap-2 text-rose-200 font-bold text-base sm:text-lg">
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 animate-bounce" />
-                <span>Deployment successful! 🚀</span>
+                <span>Deployment successful!</span>
               </div>
               <p className="text-[11px] sm:text-xs text-rose-300/80">
                 Redirecting to main question...

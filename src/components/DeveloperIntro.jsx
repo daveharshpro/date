@@ -60,7 +60,7 @@ export const DeveloperIntro = ({ config, onNext }) => {
           transition={{ delay: 0.5 }}
           className="text-clamp-heading font-bold font-romantic bg-gradient-to-r from-rose-200 via-pink-300 to-rose-400 bg-clip-text text-transparent"
         >
-          {config.introSubtext2 || "But where's the fun in that? 😉"}
+          {config.introSubtext2 || "But where's the fun in that?"}
         </motion.h2>
       </div>
 
@@ -110,7 +110,7 @@ export const DeveloperIntro = ({ config, onNext }) => {
             className="bg-[#1F0815] border-t border-rose-500/30 px-4 py-2.5 sm:px-5 sm:py-3 flex items-center gap-2 font-mono text-[11px] sm:text-sm text-emerald-400"
           >
             <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 shrink-0" />
-            <span>&gt; Output: Perfect plan detected ❤️</span>
+            <span>&gt; Output: Perfect plan detected</span>
           </motion.div>
         )}
       </motion.div>
@@ -122,7 +122,7 @@ export const DeveloperIntro = ({ config, onNext }) => {
         transition={{ delay: 1.2 }}
         className="text-base sm:text-xl text-rose-200/90 mb-6 sm:mb-8 font-medium"
       >
-        {config.introConclusion || "So I decided to build something instead. 😌"}
+        {config.introConclusion || "So I decided to build something instead."}
       </motion.p>
 
       {/* Continue Button */}

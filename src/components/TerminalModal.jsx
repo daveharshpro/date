@@ -36,23 +36,23 @@ export const TerminalModal = ({ isOpen, onClose }) => {
       newHistory.push({
         type: 'output',
         text: `Available commands:
-  • npm run date      Execute main proposal pipeline
-  • git status        Check love repository branch status
-  • cat secret.txt    Read developer internal notes
-  • 404              Query girlfriend status
-  • clear             Clear terminal screen
-  • exit              Close terminal modal`
+  - npm run date      Execute main proposal pipeline
+  - git status        Check love repository branch status
+  - cat secret.txt    Read developer internal notes
+  - 404              Query girlfriend status
+  - clear             Clear terminal screen
+  - exit              Close terminal modal`
       });
     } else if (cmd === 'npm run date' || cmd === 'run date') {
       newHistory.push({
         type: 'output',
         text: `> finding perfect date...
 
-✓ Person found: You ❤️
-✓ Courage loaded: 100%
-✓ Question generated: "Will you go on a date with me?"
+[+] Person found: You
+[+] Courage loaded: 100%
+[+] Question generated: "Will you go on a date with me?"
 
-> Result: Date status READY! 🚀`
+> Result: Date status READY!`
       });
     } else if (cmd === 'git status') {
       newHistory.push({
@@ -60,7 +60,7 @@ export const TerminalModal = ({ isOpen, onClose }) => {
         text: `On branch 'in-love'
 Your branch is up to date with 'heart/main'.
 
-nothing to commit, working tree clean & overflowing with affection ❤️`
+nothing to commit, working tree clean & overflowing with affection`
       });
     } else if (cmd === '404' || cmd === 'cat 404.txt' || cmd === 'cat secret.txt') {
       newHistory.push({
@@ -68,7 +68,7 @@ nothing to commit, working tree clean & overflowing with affection ❤️`
         text: `404: Girlfriend not found.
 
 Just kidding.
-She's right here looking at this screen right now. ❤️`
+She's right here looking at this screen right now.`
       });
     } else if (cmd === 'clear') {
       setHistory([]);

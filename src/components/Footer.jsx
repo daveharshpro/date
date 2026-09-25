@@ -7,12 +7,12 @@ export const Footer = ({ config, onOpenTerminal }) => {
     <footer className="w-full pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] px-4 border-t border-rose-500/10 text-center text-xs text-rose-300/60 space-y-2.5 z-10 relative">
       <div className="flex items-center justify-center gap-1.5 font-mono text-[11px] sm:text-xs">
         <Code2 className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-        <span>{config.footerCredit || "Built with ❤️, JavaScript & questionable confidence."}</span>
+        <span>{config.footerCredit || "Built with code, passion & confidence."}</span>
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-[10px] sm:text-[11px]">
         <span className="text-rose-300/50">
-          {config.notFoundJoke || "404: Girlfriend not found. Just kidding. She's right here. ❤️"}
+          {config.notFoundJoke || "404: Special person not found. Just kidding, you're right here."}
         </span>
 
         <button

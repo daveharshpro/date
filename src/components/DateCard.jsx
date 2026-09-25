@@ -39,7 +39,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
         {/* Big Header */}
         <div className="space-y-1.5 sm:space-y-2">
           <h2 className="text-clamp-heading font-extrabold font-romantic bg-gradient-to-r from-white via-rose-100 to-pink-200 bg-clip-text text-transparent text-glow">
-            {config.dateCardTitle || "It's a date! ❤️"}
+            {config.dateCardTitle || "It's a date!"}
           </h2>
           <p className="text-xs sm:text-base text-rose-200/80">
             Your pass to an unforgettable experience.
@@ -73,7 +73,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
                 Location
               </div>
               <div className="text-sm sm:text-lg font-semibold text-white">
-                {config.dateLocation || "Secret for now 👀"}
+                {config.dateLocation || "Secret for now"}
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
                 Food
               </div>
               <div className="text-sm sm:text-lg font-semibold text-white">
-                {config.dateFood || "Definitely involved 🍕🍷"}
+                {config.dateFood || "Definitely involved"}
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
                 Vibes
               </div>
               <div className="text-sm sm:text-lg font-semibold text-white">
-                {config.dateVibes || "Immaculate ✨"}
+                {config.dateVibes || "Immaculate"}
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
 
         {/* Sweet Closing Text */}
         <p className="text-base sm:text-xl font-romantic text-rose-200/90 italic">
-          "{config.finalMessage || "Can't wait to spend some time with you. ❤️"}"
+          "{config.finalMessage || "Can't wait to spend some time with you."}"
         </p>
 
         {/* Replay Button */}
@@ -121,7 +121,7 @@ export const DateCard = ({ config, partnerName, myName, onReset }) => {
             className="w-full min-h-[48px] py-3.5 sm:py-4 rounded-2xl glass-panel border border-rose-500/30 text-rose-200 font-semibold text-base sm:text-lg flex items-center justify-center gap-2 hover:border-rose-400 hover:text-white hover:bg-rose-500/20 transition-all duration-300 cursor-pointer"
           >
             <RotateCcw className="w-5 h-5" />
-            <span>Replay the whole thing ↻</span>
+            <span>Replay the whole thing</span>
           </button>
         </div>
       </div>

@@ -10,16 +10,16 @@ export const DateProposal = ({ config, onYes }) => {
   const containerRef = useRef(null);
 
   const phrases = config.noButtonPhrases || [
-    "Are you sure? 🥺",
-    "Really sure? 😭",
-    "Think again... 👀",
-    "Wait, look at the YES button! 💖",
-    "Nice try! 💨",
-    "Error 404: 'No' unavailable! 😂"
+    "Are you sure?",
+    "Really sure?",
+    "Think again...",
+    "Wait, look at the YES button!",
+    "Nice try!",
+    "Error 404: 'No' unavailable!"
   ];
 
   const getNoButtonText = () => {
-    if (noCount === 0) return config.noButtonText || "NO 🙈";
+    if (noCount === 0) return config.noButtonText || "NO";
     const idx = Math.min(noCount - 1, phrases.length - 1);
     return phrases[idx];
   };
@@ -126,7 +126,7 @@ export const DateProposal = ({ config, onYes }) => {
           </div>
 
           <h1 className="text-clamp-title font-extrabold font-romantic leading-tight bg-gradient-to-r from-white via-rose-100 to-pink-200 bg-clip-text text-transparent text-glow">
-            {config.dateQuestion || "Will you go on a date with me? ❤️"}
+            {config.dateQuestion || "Will you go on a date with me?"}
           </h1>
         </motion.div>
 
@@ -147,7 +147,7 @@ export const DateProposal = ({ config, onYes }) => {
             className="z-20 min-h-[48px] px-8 py-3.5 sm:px-10 sm:py-5 rounded-2xl glass-button text-white font-bold text-lg sm:text-2xl flex items-center gap-2.5 sm:gap-3 shadow-[0_0_30px_rgba(244,63,94,0.6)] cursor-pointer hover:shadow-[0_0_40px_rgba(244,63,94,0.9)]"
           >
             <Heart className="w-5 h-5 sm:w-7 sm:h-7 text-white fill-white animate-pulse" />
-            <span>{config.yesButtonText || "YES ❤️"}</span>
+            <span>{config.yesButtonText || "YES"}</span>
           </motion.button>
 
           {/* NO BUTTON (Runaway logic with pointer/touch support) */}
@@ -180,7 +180,7 @@ export const DateProposal = ({ config, onYes }) => {
             className="pt-2 text-xs text-rose-300/80 flex items-center justify-center gap-1.5"
           >
             <AlertCircle className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-            <span>Psst... Notice how big the YES button is getting? 😉</span>
+            <span>Psst... Notice how big the YES button is getting?</span>
           </motion.div>
         )}
       </div>

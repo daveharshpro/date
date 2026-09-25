@@ -17,7 +17,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
 
     if (!cleanPartner || !cleanMy) {
       playPingSound();
-      setErrorMsg("You have to give me a name first. 🥺❤️");
+      setErrorMsg("Please enter both names first.");
       return;
     }
 
@@ -55,10 +55,10 @@ export const NamePersonalization = ({ config, onSubmit }) => {
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-bold font-romantic text-white text-glow">
-            A Little Detail Just for Us 🤫❤️
+            Before We Begin...
           </h2>
           <p className="text-xs sm:text-sm text-rose-200/80">
-            Let's personalize our date details!
+            Let's make it special for us.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
           <div className="space-y-2">
             <label className="block text-sm sm:text-base font-semibold text-rose-100 flex items-center gap-2">
               <Heart className="w-4 h-4 text-rose-400 fill-rose-400 shrink-0" />
-              <span>What should I call you on our date? ❤️</span>
+              <span>What should I call you on our date?</span>
             </label>
             <input
               type="text"
@@ -87,7 +87,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
           <div className="space-y-2">
             <label className="block text-sm sm:text-base font-semibold text-rose-100 flex items-center gap-2">
               <UserCheck className="w-4 h-4 text-amber-300 shrink-0" />
-              <span>And what will you call me? 😌</span>
+              <span>And what will you call me?</span>
             </label>
             <input
               type="text"
@@ -124,7 +124,7 @@ export const NamePersonalization = ({ config, onSubmit }) => {
               disabled={isSubmitting}
               className="w-full min-h-[48px] px-6 py-4 rounded-2xl glass-button text-white font-semibold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-xl hover:scale-[1.02] active:scale-98 transition-all cursor-pointer"
             >
-              <span>Continue to Date Details ❤️</span>
+              <span>Continue to Date Details</span>
               <ArrowRight className="w-5 h-5 text-white" />
             </button>
           </div>

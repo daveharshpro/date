@@ -7,15 +7,15 @@ export const dateConfig = {
   guyName: "Dev",
 
   // Screen 1 - Welcome
-  welcomeTitle: "Hey ❤️",
+  welcomeTitle: "Hey",
   openingMessage: "I made something for you...",
-  openButtonText: "Open it 💌",
+  openButtonText: "Open it",
 
   // Screen 2 - Developer Intro
   introSubtext1: "I could have just texted you...",
-  introSubtext2: "But where's the fun in that? 😉",
-  introConclusion: "So I decided to build something instead. 😌",
-  codeSnippet: `const girl = "The most special person ❤️";
+  introSubtext2: "But where's the fun in that?",
+  introConclusion: "So I decided to build something instead.",
+  codeSnippet: `const girl = "The most special person";
 
 const plan = {
     location: "Somewhere nice",
@@ -24,14 +24,14 @@ const plan = {
 };
 
 if (girl === "you") {
-    console.log("Perfect plan detected ❤️");
+    console.log("Perfect plan detected");
 }`,
 
   // Screen 3 - The Build Sequence
   buildSteps: [
     { text: "Initializing Date.exe...", icon: "Terminal" },
-    { text: "Finding perfect person...", success: true, detail: "Person found: YOU ❤️" },
-    { text: "Checking compatibility...", success: true, detail: "100% Match! ✨" },
+    { text: "Finding perfect person...", success: true, detail: "Person found: YOU" },
+    { text: "Checking compatibility...", success: true, detail: "100% Match!" },
     { text: "Preparing courage...", progress: 87 },
     { text: "Generating confidence...", progress: 100 },
     { text: "Deploying question...", icon: "Rocket" }
@@ -48,9 +48,9 @@ if (girl === "you") {
     },
     {
       id: 2,
-      icon: "Laugh",
-      title: "Your Sense of Humor",
-      desc: "The way you laugh at my dorky tech jokes (and make even funnier ones yourself)."
+      icon: "Eye",
+      title: "Your Eyes",
+      desc: "The cutest pair of eyes that can make my heart skip a beat with just one glance."
     },
     {
       id: 3,
@@ -78,37 +78,37 @@ if (girl === "you") {
     "I've spent enough time writing code.",
     "Here's the real question."
   ],
-  dateQuestion: "Will you go on a date with me? ❤️",
-  yesButtonText: "YES ❤️",
-  noButtonText: "NO 🙈",
-  
+  dateQuestion: "Will you go on a date with me?",
+  yesButtonText: "YES",
+  noButtonText: "NO",
+
   // Playful NO button response states
   noButtonPhrases: [
-    "Are you sure? 🥺",
-    "Really sure? 😭",
-    "Think again... 👀",
-    "Wait, look at the YES button! 💖",
-    "Nice try, fast fingers! 💨",
-    "You can't escape romance! 🏹",
-    "Error 404: 'No' option unavailable! 😂"
+    "Are you sure?",
+    "Really sure?",
+    "Think again...",
+    "Wait, look at the YES button!",
+    "Nice try, fast fingers!",
+    "You can't escape romance!",
+    "Error 404: 'No' option unavailable!"
   ],
 
   // YES celebration texts
-  celebrationTitle: "YAY! ❤️",
-  celebrationSubtext: "I knew you'd say yes. 😌",
-  celebrationBadge: "Date officially unlocked 🔓❤️",
+  celebrationTitle: "YAY!",
+  celebrationSubtext: "I knew you'd say yes.",
+  celebrationBadge: "Date officially unlocked",
 
   // Final Screen - Date Ticket Details
-  dateCardTitle: "It's a date! ❤️",
+  dateCardTitle: "It's a date!",
   coupleText: "You + Me",
-  dateLocation: "Somewhere special (Secret for now 👀)",
+  dateLocation: "Somewhere special (Secret for now)",
   dateActivity: "Dinner + good conversations + cozy vibes",
-  dateFood: "Definitely delicious food 🍕🍷",
-  dateVibes: "Immaculate ✨",
-  dateDateTime: "Coming real soon 🗓️",
-  finalMessage: "Can't wait to spend some time with you. ❤️",
+  dateFood: "Definitely delicious food",
+  dateVibes: "Immaculate",
+  dateDateTime: "Coming real soon",
+  finalMessage: "Can't wait to spend some time with you.",
 
   // Developer Easter Eggs
-  footerCredit: "Built with ❤️, JavaScript & questionable confidence.",
-  notFoundJoke: "404: Girlfriend not found. Just kidding. She's right here. ❤️"
+  footerCredit: "Built with code, passion & confidence.",
+  notFoundJoke: "404: Special person not found. Just kidding, you're right here."
 };

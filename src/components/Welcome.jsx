@@ -45,7 +45,7 @@ export const Welcome = ({ config, onNext }) => {
           className="space-y-3 sm:space-y-4"
         >
           <h1 className="text-clamp-title font-extrabold tracking-tight font-romantic bg-gradient-to-r from-white via-rose-100 to-pink-200 bg-clip-text text-transparent text-glow">
-            {config.welcomeTitle || 'Hey ❤️'}
+            {config.welcomeTitle || 'Hey'}
           </h1>
 
           <p className="text-clamp-body text-rose-200/90 font-light leading-relaxed">
@@ -65,7 +65,7 @@ export const Welcome = ({ config, onNext }) => {
             className="w-full sm:w-auto min-h-[48px] px-8 py-3.5 sm:py-4 rounded-2xl glass-button text-white font-semibold text-base sm:text-xl flex items-center justify-center gap-3 mx-auto transform hover:-translate-y-1 active:translate-y-0 transition-all duration-300 group cursor-pointer"
           >
             <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-rose-200 group-hover:scale-110 transition-transform duration-300" />
-            <span>{config.openButtonText || 'Open it 💌'}</span>
+            <span>{config.openButtonText || 'Open it'}</span>
           </button>
         </motion.div>
 
